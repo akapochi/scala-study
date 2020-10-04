@@ -15,13 +15,10 @@ object SimpleSearch extends App {
   def isMatch(textPart: Seq[Char], pattern: Seq[Char]): Boolean = {
     var isMatch = true
     var i = 0
-    while (i < pattern.length) {
-      if (textPart.length < pattern.length || textPart(i) != pattern(i)) isMatch = false; i = i + 1
+    while (isMatch && i <= pattern.length - 1) {
+      if (i > textPart.length - 1 || textPart(i) != pattern(i)) isMatch = false
+      i = i + 1
     } 
-
-    // for (i <- 0 to pattern.length - 1) {
-    //  if(textPart.length < pattern.length || textPart(i) != pattern(i)) isMatch = false
-    // }
     isMatch
   }
 
